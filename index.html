@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>BBS</title>
+		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
+		<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+		<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script type="application/javascript" src="js/api.js" ></script>
+		
+		<script>
+			$(function () {
+				//getFileContent("db/main.db0");
+				var a=[];
+				for (let i = 0; i < 100; i++) {
+					var b={};
+					b.title="acbaj";
+					b.content="bdjvjvajvcavcahcvach";
+					a.push(b)
+				}
+				fileContent="{'a':a}"
+				try{
+					var obj=eval('('+fileContent+')');
+					console.log(obj);
+					var a=obj.a;
+					for (let i = 0; i < a.length; i++) {
+						var b=a[i];
+						var title="<h4>"+b.title+"</h4>";
+						var div="<div>"+b.content+"</div>";
+						$(".content").append(title);
+						$(".content").append(div);
+					}
+					
+				}catch(e){
+					console.log(e);
+				}
+			})
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="content" style="text-align: center;"></div>
+		</div>
+		
+	</body>
+</html>
